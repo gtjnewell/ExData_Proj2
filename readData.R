@@ -1,3 +1,6 @@
 ## This first line will likely take a few seconds. Be patient!
-NEI <- readRDS("summarySCC_PM25.rds")
-SCC <- readRDS("Source_Classification_Code.rds")
+setwd("~/Coursera//Exploratory Data Analysis//Project2/")
+NEI <- readRDS("Data/summarySCC_PM25.rds")
+SCC <- readRDS("Data/Source_Classification_Code.rds")
+head(NEI)
+head(SCC)
