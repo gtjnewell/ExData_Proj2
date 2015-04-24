@@ -7,10 +7,12 @@ head(SCC)
 totEmissionsGroupByYear <- aggregate(Emissions~year, NEI, sum)
 # Q1: Have total emissions from PM2.5 decreased in the United States from 1999 to 2008?
 # Plot total emissions per year from all sources
-with(totEmissionsGroupByYear, plot(year,Emissions))
-title(main="Total Emissions from All Sources by Year")
+with(totEmissionsGroupByYear, plot(year,Emissions, pch=5,
+                                   sub="National Emissions Inventory database",
+                                   xlab="Year", ylab="Emissions (tons)"))
+title(main="Total Emissions from All Sources by Year" )
 lmodel <- lm(Emissions~year, totEmissionsGroupByYear)
-abline(lmodel, lwd=3, col = "green")
+abline(lmodel, lwd=3, col = "green", lty=2)
 
 # Q2: Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008?
 # subset to Baltimore City
@@ -18,7 +20,9 @@ BaltimoreCity <- subset(NEI, fips ==24510)
 # sum by year
 totEmissionsGroupByYear <- aggregate(Emissions~year, BaltimoreCity, sum)
 # Plot total emissions per year from all sources for Baltimore City
-with(totEmissionsGroupByYear, plot(year,Emissions))
-title(main="Total Emissions from All Sources by Year for Baltimore City")
+with(totEmissionsGroupByYear, plot(year,Emissions, pch=5,
+                                      sub="National Emissions Inventory database",
+                                      xlab="Year", ylab="Emissions (tons)"))
+title(main="Total Emissions from All Sources by Year for Baltimore City (fips=24510)")
 lmodel <- lm(Emissions~year, totEmissionsGroupByYear)
 abline(lmodel, lwd=3, col = "green")
